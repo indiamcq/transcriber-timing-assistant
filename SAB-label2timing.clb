@@ -1,0 +1,8 @@
+= V5 MultiLine NoSorting TabWidth=30
+
+H="Convert files"
+^!Replace "0.0 \\ref \\gl\r?\n" >> "" RAGWS
+^!Replace "^[\d\.]+$" >> "" RAGWS
+^!Replace "^([\d\.]+) (\d+[a-z]?) .+" >> "$1\t$1\t$2" RAGWS
+
+
