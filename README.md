@@ -113,7 +113,7 @@ All the files should be ready for SAB.
 
 ### Key Advantages of Transcriber method
 
-*There is only on program to interact with. Transcriber moves the audio and the text to keep both in the viewing area.
+* There is only on program to interact with. Transcriber moves the audio and the text to keep both in the viewing area.
 * It is the most integrated environment.
 * Having the text line length visible near the WAV shape aids in guessing the next breakpoint.
 * You only generally have to do right clicks. And those click can be exactly where you want them.
@@ -126,58 +126,4 @@ All the files should be ready for SAB.
 * I once lost a completed transcription file that was previously saved by not paying attention to dialogs that came up. Have not reproduced error.
 * You can’t do start time and end time. You can only record the start time. If you are after perfection this is not the tool. * But you could do the first pass in Transcriber and then open in Audacity.
 * Set up of end conversion is extra work.
-
-### Appendix
-
-#### AutoHotKey script
-```
-  ; Transcriber hotkeys for segmenting Scripture for Scripture App Builder
-  ; for stand alone use
-  ;
-  ; Written by Ian McQuay
-  ; 2015-Jun-04
-  ; Revised by IM 2015-Jun-11
-  ;
-  ; Set the menu icon
-  menu tray, Icon, t.ico
-  ; not need new icon
- #SingleInstance force
-  #p::Pause                               ; Windows key p   Pauses execution of script
-   
-  :c?*:zx::ExitApp                      ; Exit the current script
-   
-  ; preparation
-  window=Transcriber
-  SetTitleMatchMode, 1
-    ; Hotkeys start with a $ so they don't fire themselves when not on Transcriber.
-  $RButton::
-      SetKeyDelay, 200
-      IfWinActive, Transcriber
--     {
-          send, {LButton}{enter}{del}{End}
-      } else {
-          send, {RButton}
-      }
-      return
-  $NumpadAdd::
-      SetKeyDelay, 200
-      IfWinActive, Transcriber
--     {
-          send, {enter}{del}{End}
-      } else {
-          send, {NumpadAdd}
-      }
-      return
-  $Space::
-      SetKeyDelay, 200
-      IfWinActive, Transcriber
--     {
-          send, {tab}
-      } else {
-          send, {space}
-      }
-      return
-  ;
-```
-
 
