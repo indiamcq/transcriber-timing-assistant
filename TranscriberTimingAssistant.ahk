@@ -5,18 +5,17 @@
 ; 2015-Jun-04
 ; Revised by IM 2015-Jun-05
 ;
-; Set the menu icon
-menu tray, Icon, t.ico
-; not need new icon
-
-; The following two lines are essential.
-startScript = %A_ScriptName%	; This line is required at the start of a simplekeys script file.
-#include SimpleKeys.ahk	; This line is required at the start of a simplekeys script file.
 ; ----------------------------------------------------------------------------------------
 ; preparation
-
-window=Transcriber
+; Allow only one instance
+#SingleInstance force
 SetTitleMatchMode, 1
+
+; if not compiled (i.e. used as a script), Set the menu icon and use 
+if (A_IsCompiled <> 1) {
+	iconfile := "Transcriber-Timing-Assistant.ico"
+	menu tray, Icon, %iconfile%
+}
 
 ; Hotkeys start with a $ so they don't fire themselves when not on Transcriber.
 $RButton::
